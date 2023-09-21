@@ -1,3 +1,2 @@
-
-    alert("hello")
+console.log("Script Tag installed")
 
