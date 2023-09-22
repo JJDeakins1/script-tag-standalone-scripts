@@ -1,3 +1,5 @@
-fbq('track', 'Purchase', {currency: "USD", value: 30.00});
+fbq('track', 'Purchase', {currency: Shopify.checkout.currency, value: Shopify.checkout.total_price});
 
 console.log("Purchase event triggered")
+console.log(Shopify.checkout.total_price)
+
