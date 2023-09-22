@@ -10,3 +10,4 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '3245654767543645');
 fbq('track', 'PageView');
 
+console.log("Pixel Initiated - Script Tag")
