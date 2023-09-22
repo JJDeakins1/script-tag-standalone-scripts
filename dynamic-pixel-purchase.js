@@ -1,4 +1,12 @@
-fbq('track', 'Purchase', {currency: Shopify.checkout.currency, value: Shopify.checkout.total_price});
+var a = fbq;
+var b = "track";
+var c = "Purchase";
+var d = Shopify.checkout;
 
-console.log("Purchase event triggered")
-console.log("Checkout Total - " Shopify.checkout.total_price)
+if (window.location.pathname.includes("orders") === true) {
+  console.log("Purchase event triggered");
+  a(b, c, { currency: d.currency, value: d.total_price });
+} else {
+  console.log("Page Path contains Orders");
+}
+
