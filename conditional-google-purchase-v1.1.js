@@ -22,10 +22,10 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
   });
 
 } else {
-  console.log("Page Path contains Orders");
+  console.log("Page Path contains Orders - 1");
 }
 
-  if (window.location.pathname.includes("orders") === false && paidUser === true) {
+  if (window.location.pathname.includes("orders") === true && paidUser === true) {
   console.log("Google Ads - [paidUser] Purchase Event Triggered");
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -40,10 +40,6 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
       'transaction_id': Shopify.checkout.order_id
   });
 
-} else {
-  console.log("Page Path contains Orders");
-}
-
   gtag('set', 'user_data', {
     "email": Shopify.checkout.email,
     "phone_number": Shopify.checkout.phone,
@@ -57,3 +53,7 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
     "country": Shopify.checkout.shipping_address.country_code
     }
     });
+
+} else {
+  console.log("Page Path contains Orders - 1");
+}
