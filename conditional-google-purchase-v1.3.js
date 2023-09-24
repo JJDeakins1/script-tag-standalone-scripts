@@ -24,7 +24,6 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
 } else {
   console.log("Page Path contains Orders - 1");
 }
-
   if (window.location.pathname.includes("orders") === false && paidUser === true) {
   console.log("Google Ads - [paidUser] Purchase Event Triggered");
   window.dataLayer = window.dataLayer || [];
@@ -39,6 +38,8 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
       'currency': Shopify.checkout.currency,
       'transaction_id': Shopify.checkout.order_id
   });
+
+  // Enhanced conversions need to be enabled to see the hashed data in the Google Tag Assistant & the Network Tab
 
   gtag('set', 'user_data', {
     "email": Shopify.checkout.email,
