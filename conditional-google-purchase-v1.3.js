@@ -3,7 +3,7 @@ var label = "43623dsaf23654"
 var divider = "/"
 var purchaseInfo = id+divider+label
 
-var paidUser = true
+var paidUser = false
 
 
 if (window.location.pathname.includes("orders") === false && paidUser === false) {
@@ -25,12 +25,12 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
   console.log("Page Path contains Orders - 1");
 }
 
-  if (window.location.pathname.includes("orders") === true && paidUser === true) {
+  if (window.location.pathname.includes("orders") === false && paidUser === true) {
   console.log("Google Ads - [paidUser] Purchase Event Triggered");
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', purchaseInfo, {'allow_enhanced_conversions': true});
+  gtag('config', purchaseInfo, {'allow_enhanced_conversions':true}); 
 
 
   gtag('event', 'conversion', {
