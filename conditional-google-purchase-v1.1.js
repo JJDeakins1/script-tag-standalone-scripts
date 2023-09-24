@@ -6,7 +6,7 @@ var purchaseInfo = id+divider+label
 var paidUser = true
 
 
-if (window.location.pathname.includes("orders") === false && paidUser === false) {
+if (window.location.pathname.includes("orders") === true && paidUser === false) {
   console.log("Google Ads - Purchase Event Triggered");
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -55,5 +55,5 @@ if (window.location.pathname.includes("orders") === false && paidUser === false)
     });
 
 } else {
-  console.log("Page Path contains Orders - 1");
+  console.log("Page Path contains Orders - 2");
 }
