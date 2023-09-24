@@ -1,4 +1,4 @@
-var id = "aw-1111111"
+var id = "AW-1111111"
 var label = "43623dsaf23654"
 var divider = "/"
 var purchaseInfo = id+divider+label
@@ -6,7 +6,7 @@ var purchaseInfo = id+divider+label
 var paidUser = true
 
 
-if (window.location.pathname.includes("orders") === true && paidUser === false) {
+if (window.location.pathname.includes("orders") === false && paidUser === false) {
   console.log("Google Ads - Purchase Event Triggered");
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -57,3 +57,4 @@ if (window.location.pathname.includes("orders") === true && paidUser === false) 
 } else {
   console.log("Page Path contains Orders - 2");
 }
+
