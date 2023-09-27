@@ -3,6 +3,7 @@ var conversionId;
 var conversionLabel;
 var divider = "/"
 var purchaseInfo
+var paidUser
 
 var shop = window.Shopify.Checkout.apiHost
 var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
@@ -15,7 +16,8 @@ fetch(getURL)
    })
   .then(() => {
     conversionId = body.googleAdsDataRecords[0].conversionId
-    conversionLabel = body.googleAdsDataRecords[0].conversionLabel;;
+    conversionLabel = body.googleAdsDataRecords[0].conversionLabel;
+    paidUser = body.googleAdsDataRecords[0].paidUser
     purchaseInfo = conversionId+divider+conversionLabel
    }).then(() => {
     if (window.location.pathname.includes("orders") === false && paidUser === false) {
