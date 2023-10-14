@@ -8,6 +8,7 @@ var paidUser
 var shop = window.Shopify.Checkout.apiHost
 var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
 var getURL = url+shop
+var subDataUrl = "https://shopify-extention--development.gadget.app/subscriptionData"
 
 fetch(getURL)
   .then(res => res.json())
@@ -17,8 +18,22 @@ fetch(getURL)
   .then(() => {
     conversionId = body.googleAdsDataRecords[0].conversionId
     conversionLabel = body.googleAdsDataRecords[0].conversionLabel;
-    paidUser = body.googleAdsDataRecords[0].paidUser
     purchaseInfo = conversionId+divider+conversionLabel
+    return fetch(subDataUrl).then(res => res.json()).then(data => {body = data}).then(() => {
+      try {
+        paidUser = body.subscriptionData[0].status
+        if (paidUser === "ACTIVE") {
+         console.log("USER SUBSCRIPTION ACTIVE" ) 
+         paidUser = true
+        } else {
+         console.log("NO SUBSCRIPTION " ) 
+         paidUser = false
+        }
+      } catch (err) {
+        console.log("no active sub")
+        paidUser = false
+      }
+      }).then(() => {console.log(paidUser)})
    }).then(() => {
     if (window.location.pathname.includes("orders") === false && paidUser === false) {
       console.log("Google Ads - Purchase Event Triggered");
