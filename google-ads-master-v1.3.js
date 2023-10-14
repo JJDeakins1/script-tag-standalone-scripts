@@ -12,7 +12,7 @@ var currentUrl = window.location.href
 var regex = /\/(\d+)/;
 
 // Use the exec() method to find the match
-var match = regex.exec(url);
+var match = regex.exec(currentUrl);
 var shopId = match[1];
 
 var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
