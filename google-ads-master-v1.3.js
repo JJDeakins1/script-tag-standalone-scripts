@@ -6,9 +6,18 @@ var purchaseInfo
 var paidUser
 
 var shop = window.Shopify.Checkout.apiHost
+var currentUrl = window.location.href
+
+// Regular expression to match the number after the first /
+var regex = /\/(\d+)/;
+
+// Use the exec() method to find the match
+var match = regex.exec(url);
+var shopId = match[1];
+
 var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
 var getURL = url+shop
-var subDataUrl = "https://shopify-extention--development.gadget.app/subscriptionData"
+var subDataUrl = "https://shopify-extention--development.gadget.app/subscriptionData?shopId="+shopId
 
 fetch(getURL)
   .then(res => res.json())
