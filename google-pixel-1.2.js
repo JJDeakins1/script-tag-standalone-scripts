@@ -1,5 +1,5 @@
 var conversionId;
-var shop = window.Shopify.Checkout.apiHost
+var shop = Shopify.shop
 var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
 var getURL = url+shop
 
