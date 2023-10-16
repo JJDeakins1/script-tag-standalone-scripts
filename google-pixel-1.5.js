@@ -13,14 +13,12 @@ fetch(getURL)
 
 var script = document.createElement('script')
 script.type = "text/javascript"
-script.text = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag(\"js\",new Date);gtag(\"config\",\"${conversionId}\");"
+script.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag(\"js\",new Date);gtag(\"config\",\"${conversionId}\");`
 document.head.appendChild(script);
 
 var script = document.createElement('script')
 script.type = "text/javascript"
-script.src = "https://www.googletagmanager.com/gtag/js?id=${conversionId}"
+script.src = `https://www.googletagmanager.com/gtag/js?id=${conversionId}`
 document.head.appendChild(script);
     
    })
-  
-
