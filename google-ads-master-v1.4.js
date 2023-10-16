@@ -1,6 +1,6 @@
-var body;
-var conversionId;
-var conversionLabel;
+var body
+var conversionId
+var conversionLabel
 var divider = "/"
 var purchaseInfo
 var paidUser
@@ -19,6 +19,20 @@ fetch(getURL)
     conversionId = body.googleAdsDataRecords[0].conversionId
     conversionLabel = body.googleAdsDataRecords[0].conversionLabel;
     purchaseInfo = conversionId+divider+conversionLabel
+
+    // create gtag script
+    var script = document.createElement('script')
+    script.type = "text/javascript"
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${conversionId}`
+    document.head.appendChild(script);
+
+    // create gtag script p2
+    var script = document.createElement('script')
+    script.type = "text/javascript"
+    script.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag(\"js\",new Date);gtag(\"config\",\"${conversionId}\");`
+    document.head.appendChild(script);
+
+    // determine if user is paid
     return fetch(subDataUrl).then(res => res.json()).then(data => {body = data}).then(() => {
       try {
         paidUser = body.subscriptionData[0].status
@@ -59,8 +73,7 @@ fetch(getURL)
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', purchaseInfo, {'allow_enhanced_conversions':true}); 
-    
-    
+  
       gtag('event', 'conversion', {
           'send_to': purchaseInfo,
           'value': Shopify.checkout.total_price,
