@@ -6,9 +6,9 @@ var purchaseInfo
 var paidUser
 
 var shop = window.Shopify.Checkout.apiHost
-var url = "https://shopify-extention--development.gadget.app/googleData?shopifyShop="
+var url = "https://gauge-fast.gadget.app/googleData?shopifyShop="
 var getURL = url+shop
-var subDataUrl = "https://shopify-extention--development.gadget.app/subscriptionData?shopifyShop="+shop
+var subDataUrl = "https://gauge-fast.gadget.app/subscriptionData?shopifyShop="+shop
 
 fetch(getURL)
   .then(res => res.json())
