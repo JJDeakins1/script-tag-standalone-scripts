@@ -5,7 +5,7 @@ var divider = "/"
 var purchaseInfo
 var paidUser
 
-var shop = window.Shopify.Checkout.apiHost
+var shop = window.Shopify.shop
 var url = "https://gauge-fast.gadget.app/googleData?shopifyShop="
 var getURL = url+shop
 var subDataUrl = "https://gauge-fast.gadget.app/subscriptionData?shopifyShop="+shop
